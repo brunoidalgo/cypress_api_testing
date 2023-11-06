@@ -1,8 +1,11 @@
-describe('template spec', () => {
+describe('Teste de API', () => {
+
+
+
   it('Deve realizar o login com sucesso', () => {
     cy.request({
       method: 'POST',
-      url:'http://localhost:3000/login',
+      url:'/login',
       body: {
         "email": "fulano@qa.com",
         "password": "teste"
@@ -19,7 +22,7 @@ describe('template spec', () => {
   it('Deve validar senha incorreta', () => {
     cy.request({
       method: 'POST',
-      url:'http://localhost:3000/login',
+      url:'/login',
       body: {
         "email": "fulano@qa.com",
         "password": "senhaIncorreta"
@@ -38,7 +41,7 @@ describe('template spec', () => {
   it('Deve retornar usuários cadastrados', () => {
     cy.request({
       method: 'GET',
-      url: 'http://localhost:3000/usuarios',
+      url: '/usuarios',
     }).then((response) => {
       // Verifica se o status da resposta é 200 (OK)
       expect(response.status).to.equal(200);
